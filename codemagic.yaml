@@ -1,0 +1,15 @@
+workflows:
+  android-zip-build:
+    name: Build Android APK from ZIP
+    instance_type: mac_mini_m1
+    scripts:
+      - name: Extract ZIP files
+        script: |
+          unzip ShiftAir.zip
+          cp -r ShiftAir/* . || true
+      - name: Build Android APK
+        script: |
+          chmod +x gradlew || true
+          ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/**/*.apk
