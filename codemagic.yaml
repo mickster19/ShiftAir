@@ -5,11 +5,15 @@ workflows:
     scripts:
       - name: Extract ZIP files
         script: |
-          unzip ShiftAir.zip
-          cp -r ShiftAir/* . || true
+          unzip -o ShiftAir.zip
+          cp -rn ShiftAir/* . || true
+          chmod +x gradlew || true
       - name: Build Android APK
         script: |
-          chmod +x gradlew || true
-          ./gradlew assembleDebug
+          if [ -f "./gradlew" ]; then
+            ./gradlew assembleDebug
+          else
+            cd ShiftAir && chmod +x gradlew && ./gradlew assembleDebug
+          fi
     artifacts:
-      - app/build/outputs/**/*.apk
+      - "**/build/outputs/**/*.apk"
