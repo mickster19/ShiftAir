@@ -6,14 +6,11 @@ workflows:
       - name: Extract ZIP files
         script: |
           unzip -o ShiftAir.zip
-          cp -rn ShiftAir/* . || true
-          chmod +x gradlew || true
+          # Sogeza mafile yote kutoka folda yoyote kwenda root
+          find . -maxdepth 2 -name "gradlew" -execdir cp -r ./* $CM_BUILD_DIR/ \; || true
       - name: Build Android APK
         script: |
-          if [ -f "./gradlew" ]; then
-            ./gradlew assembleDebug
-          else
-            cd ShiftAir && chmod +x gradlew && ./gradlew assembleDebug
-          fi
+          chmod +x gradlew
+          ./gradlew assembleDebug
     artifacts:
       - "**/build/outputs/**/*.apk"
