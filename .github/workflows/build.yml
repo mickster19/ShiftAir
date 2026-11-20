@@ -22,9 +22,29 @@ jobs:
 
       - name: Prepare SDK and Gradle
         run: |
-          mkdir -p "$ANDROID_HOME/licenses"
+          set -e
+          mkdir -p "$ANDROID_HOME/licenses" "$ANDROID_HOME/cmdline-tools"
           printf "8933bad161af4178b1185d1a37fbf41ea5269c55\nd56f5187479451eabf01fb78af6dfcb131a6481e\n24333f8a63b6825ea9c5514f83c2829b004d1fee\n" > "$ANDROID_HOME/licenses/android-sdk-license"
-          sdkmanager --sdk_root="$ANDROID_HOME" "platform-tools" "platforms;android-34" "build-tools;34.0.0" || true
+
+          SDKMANAGER=$(command -v sdkmanager || find "$ANDROID_HOME" -name "sdkmanager" -type f 2>/dev/null | head -n 1 || true)
+          if [ -z "$SDKMANAGER" ]; then
+            curl -sL "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip" -o /tmp/cmdtools.zip
+            unzip -q /tmp/cmdtools.zip -d "$ANDROID_HOME/cmdline-tools"
+            mv "$ANDROID_HOME/cmdline-tools/cmdline-tools" "$ANDROID_HOME/cmdline-tools/latest"
+            SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          fi
+
+          yes | "$SDKMANAGER" --sdk_root="$ANDROID_HOME" --licenses >/dev/null || true
+          "$SDKMANAGER" --sdk_root="$ANDROID_HOME" "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+
+          if [ ! -f ./gradlew ]; then
+            if ! command -v gradle >/dev/null 2>&1; then
+              curl -sL "https://services.gradle.org/distributions/gradle-8.7-bin.zip" -o /tmp/gradle.zip
+              unzip -q /tmp/gradle.zip -d /tmp/gradle-bin
+              export PATH="/tmp/gradle-bin/gradle-8.7/bin:$PATH"
+            fi
+            gradle wrapper --gradle-version 8.7 --distribution-type bin
+          fi
           chmod +x gradlew
 
       - name: Build Debug APK
