@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#0066FF</color>
-    <color name="primary_dark">#004EC2</color>
-    <color name="accent">#00C853</color>
-    <color name="bg_light">#F8FAFC</color>
-    <color name="surface_white">#FFFFFF</color>
-    <color name="text_primary">#0F172A</color>
-    <color name="text_secondary">#64748B</color>
-    <color name="divider">#E2E8F0</color>
-    <color name="black">#000000</color>
+    <color name="bg_dark">#070A12</color>
+    <color name="card_glass">#121829</color>
+    <color name="card_stroke">#26324D</color>
+    <color name="neon_red">#FF1E42</color>
+    <color name="electric_blue">#00D2FF</color>
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
 </resources>

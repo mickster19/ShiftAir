@@ -1,8 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ShiftAir</string>
-    <string name="nav_transfer">Transfer</string>
-    <string name="nav_video">Video</string>
-    <string name="nav_audio">Audio</string>
-    <string name="nav_files">Files</string>
+    <string name="home_title">Quick Share</string>
+    <string name="cat_apps">Apps</string>
+    <string name="cat_video">Video</string>
+    <string name="cat_audio">Audio</string>
+    <string name="cat_images">Images</string>
+    <string name="cat_files">Files</string>
+    <string name="radar_searching">Scanning Nearby Devices...</string>
+    <string name="radar_hint">Tap to refresh radar and pair via Wi-Fi Direct</string>
+    <string name="profile_hint">Tap photo to change • Edit device name below</string>
+    <string name="save_profile">Save Device</string>
+    <string name="profile_saved">Device profile updated</string>
 </resources>
