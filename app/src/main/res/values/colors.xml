@@ -12,6 +12,9 @@
     <color name="text_light_primary">#0F172A</color>
     <color name="text_light_secondary">#475569</color>
 
+    <color name="text_primary">#F3F4F6</color>
+    <color name="text_secondary">#9CA3AF</color>
+
     <color name="accent_green">#0D9458</color>
     <color name="accent_blue">#00D2FF</color>
     <color name="accent_red">#FF1E42</color>
