@@ -1,190 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
-    android:padding="16dp">
+    android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="56dp"
+        android:background="@color/accent_green"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="14dp">
+
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="Profile"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_myplaces" />
+
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnToggleTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:backgroundTint="@color/card_dark"
+            android:text="@string/theme_light"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/tabStrip"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/accent_green"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <Button android:id="@+id/tabHistory" android:layout_width="wrap_content" android:layout_height="36dp" android:backgroundTint="@android:color/transparent" android:text="@string/tab_history" android:textAllCaps="false" android:textColor="@android:color/white" />
+            <Button android:id="@+id/tabApps" android:layout_width="wrap_content" android:layout_height="36dp" android:backgroundTint="@android:color/transparent" android:text="@string/tab_apps" android:textAllCaps="false" android:textColor="@android:color/white" />
+            <Button android:id="@+id/tabPhotos" android:layout_width="wrap_content" android:layout_height="36dp" android:backgroundTint="@android:color/transparent" android:text="@string/tab_photos" android:textAllCaps="false" android:textColor="@android:color/white" />
+            <Button android:id="@+id/tabVideos" android:layout_width="wrap_content" android:layout_height="36dp" android:backgroundTint="@android:color/transparent" android:text="@string/tab_videos" android:textAllCaps="false" android:textColor="@android:color/white" />
+            <Button android:id="@+id/tabMusic" android:layout_width="wrap_content" android:layout_height="36dp" android:backgroundTint="@android:color/transparent" android:text="@string/tab_music" android:textAllCaps="false" android:textColor="@android:color/white" />
+            <Button android:id="@+id/tabFiles" android:layout_width="wrap_content" android:layout_height="36dp" android:backgroundTint="@android:color/transparent" android:text="@string/tab_files" android:textAllCaps="false" android:textColor="@android:color/white" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="14dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/card_glass"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="14dp">
-
-            <ImageView
-                android:id="@+id/ivProfileAvatar"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:background="@color/electric_blue"
-                android:contentDescription="Profile Avatar"
-                android:padding="2dp"
-                android:scaleType="centerCrop"
-                android:src="@android:drawable/ic_menu_camera" />
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/settingsPanel"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginBottom="12dp"
+                android:background="@color/surface_dark"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvDeviceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_settings"
+                    android:textColor="@color/text_dark_primary"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/etDeviceName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:hint="Device Name"
+                    android:layout_marginTop="6dp"
+                    android:hint="Device name"
                     android:inputType="textPersonName"
-                    android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary"
-                    android:textSize="16sp"
+                    android:textColor="@color/text_dark_primary"
+                    android:textColorHint="@color/text_dark_secondary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnSaveName"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/accent_green"
+                        android:text="Save"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white" />
+
+                    <Button
+                        android:id="@+id/btnModeToggle"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/card_dark"
+                        android:text="Dark / White"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/storageCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@color/surface_dark"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvStorageInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Storage"
+                    android:textColor="@color/text_dark_primary"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvActiveTabSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile_hint"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="12sp" />
+                    android:layout_marginTop="4dp"
+                    android:text="Apps"
+                    android:textColor="@color/text_dark_secondary"
+                    android:textSize="13sp" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnSaveProfile"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/itemsContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/neon_red"
-                android:text="@string/save_profile"
-                android:textAllCaps="false"
-                android:textColor="@color/text_primary" />
+                android:orientation="vertical" />
         </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/home_title"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/bottomActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/surface_dark"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnSendAction"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/accent_green"
+            android:text="@string/btn_send"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
 
-            <Button
-                android:id="@+id/btnShareApps"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_marginEnd="6dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/card_glass"
-                android:text="@string/cat_apps"
-                android:textAllCaps="false"
-                android:textColor="@color/electric_blue" />
-
-            <Button
-                android:id="@+id/btnShareVideo"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/card_glass"
-                android:text="@string/cat_video"
-                android:textAllCaps="false"
-                android:textColor="@color/neon_red" />
-
-            <Button
-                android:id="@+id/btnShareAudio"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="6dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/card_glass"
-                android:text="@string/cat_audio"
-                android:textAllCaps="false"
-                android:textColor="@color/electric_blue" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnShareImages"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_marginEnd="6dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/card_glass"
-                android:text="@string/cat_images"
-                android:textAllCaps="false"
-                android:textColor="@color/neon_red" />
-
-            <Button
-                android:id="@+id/btnShareFiles"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="6dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/card_glass"
-                android:text="@string/cat_files"
-                android:textAllCaps="false"
-                android:textColor="@color/electric_blue" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radarCard"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/card_glass"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <View
-                android:id="@+id/radarPulse"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
-                android:background="@color/electric_blue" />
-
-            <TextView
-                android:id="@+id/tvRadarStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/radar_searching"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvActiveDevice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:textColor="@color/neon_red"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="@string/radar_hint"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnReceiveAction"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/card_dark"
+            android:text="@string/btn_receive"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
