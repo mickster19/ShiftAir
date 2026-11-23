@@ -77,7 +77,7 @@ class TransferService : Service() {
 
                 val buffer = ByteArray(8192)
                 var totalRead = 0L
-                var bytesRead: Int
+                var bytesRead: Int = 0
 
                 while (totalRead < fileSize && input.read(buffer).also { bytesRead = it } != -1) {
                     fileOut.write(buffer, 0, bytesRead)
@@ -118,7 +118,7 @@ class TransferService : Service() {
 
                 val buffer = ByteArray(8192)
                 var totalSent = 0L
-                var bytesRead: Int
+                var bytesRead: Int = 0
 
                 while (inputStream.read(buffer).also { bytesRead = it } != -1) {
                     output.write(buffer, 0, bytesRead)
