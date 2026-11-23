@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShiftAir</string>
+    <string name="nav_transfer">Transfer</string>
+    <string name="nav_video">Video</string>
+    <string name="nav_audio">Audio</string>
+    <string name="nav_files">Files</string>
+</resources>
