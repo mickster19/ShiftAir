@@ -1,9 +1,0 @@
-<resources>
-    <color name="shift_blue_dark">#0B2545</color>
-    <color name="shift_blue">#1565D8</color>
-    <color name="shift_cyan">#13C4CC</color>
-    <color name="shift_white">#FFFFFF</color>
-    <color name="shift_bg">#F4F8FC</color>
-    <color name="shift_grey">#8A97A8</color>
-    <color name="shift_black">#0E1420</color>
-</resources>
