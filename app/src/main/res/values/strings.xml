@@ -11,4 +11,9 @@
     <string name="profile_hint">Tap photo to change • Edit device name below</string>
     <string name="save_profile">Save Device</string>
     <string name="profile_saved">Device profile updated</string>
+
+    <string name="nav_transfer">Transfer</string>
+    <string name="nav_video">Video</string>
+    <string name="nav_audio">Audio</string>
+    <string name="nav_files">Files</string>
 </resources>
